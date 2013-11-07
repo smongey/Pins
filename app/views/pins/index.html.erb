@@ -1,13 +1,16 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
 <div id="pins">
 <% @pins.each do |pin| %>
   <div class="box">
-  <%= image_tag pin.image.url(:medium) %>
-  <%= pin.description %>
-  <%= pin.user.email if pin.user %>
-  <%= link_to 'Show', pin %>
+  <%= link_to image_tag(pin.image.url(:medium)), pin %>
+  <p><%= pin.description %></p>
+  <p><%= pin.user.email if pin.user %></p>
     <% if pin.user == current_user %>
-      <%= link_to 'Edit', edit_pin_path(pin) %>
-      <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <p>
+      <%= link_to 'Edit |', edit_pin_path(pin) %>
+      <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
     <% end %>
   </div>
 <% end %>
