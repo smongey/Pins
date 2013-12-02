@@ -3,6 +3,11 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <h1 style="font-size:4em;">Fuck you man!</h1>
+
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name, :autofocus => true %></div>
+
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 

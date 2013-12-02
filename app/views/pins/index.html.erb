@@ -5,7 +5,7 @@
   <div class="box">
   <%= link_to image_tag(pin.image.url(:medium)), pin %>
   <p><%= pin.description %></p>
-  <p><%= pin.user.email if pin.user %></p>
+  <p><%= pin.user.name if pin.user %></p>
     <% if pin.user == current_user %>
     <p>
       <%= link_to 'Edit |', edit_pin_path(pin) %>
@@ -14,4 +14,8 @@
     <% end %>
   </div>
 <% end %>
+</div>
+
+<div style="width:100%; text-align:center;">
+  <%= will_paginate @posts, :page_links => false %>
 </div>
